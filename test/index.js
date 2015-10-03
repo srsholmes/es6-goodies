@@ -3,7 +3,7 @@ import {
   isPrime
 } from '../math';
 
-import { removeDuplicate, maxNumber } from '../arrayFunc';
+import { removeDuplicate, maxNumber, concat } from '../arrayFunc';
 import { reverse } from '../stringFunc';
 
 test('isPrime', t => {
@@ -26,11 +26,17 @@ test('maxNumber', t => {
   t.deepEqual(maxNumber('1,2,3'), 3, 'Max is 3, in comma seperated string');
   t.deepEqual(maxNumber('1 2 3'), 3, 'Max is 3, in space seperated string');
   t.deepEqual(maxNumber('1a 2b 3c'), 3, 'Max is 3, in space seperated string, with letters stripped');
-
 });
 
 test('reverse', t => {
   t.plan(1);
   let str = 'the quick brown fox jumps over the lazy dog';
   t.deepEqual(reverse(str), 'god yzal eht revo spmuj xof nworb kciuq eht', 'String reversed');
+});
+
+test('concat', t => {
+  t.plan(1);
+  let arr_01 = [1,2,3];
+  let arr_02 = [4,5,6];
+  t.deepEqual(concat(arr_01, arr_02), [1,2,3,4,5,6], 'Arrays combined');
 });
