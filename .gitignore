@@ -1,6 +1,6 @@
-stringFunc/
-math/
-arrayFunc/
+/stringFunc/
+/math/
+/arrayFunc/
 node_modules/
 npm-debug.log
 /index.js
