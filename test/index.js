@@ -20,11 +20,13 @@ test('removeDuplicate', t => {
 });
 
 test('maxNumber', t => {
-  t.plan(3);
+  t.plan(4);
   let arr = [1,2,3];
   t.deepEqual(maxNumber(arr), 3, 'Max is 3');
   t.deepEqual(maxNumber('1,2,3'), 3, 'Max is 3, in comma seperated string');
   t.deepEqual(maxNumber('1 2 3'), 3, 'Max is 3, in space seperated string');
+  t.deepEqual(maxNumber('1a 2b 3c'), 3, 'Max is 3, in space seperated string, with letters stripped');
+
 });
 
 test('reverse', t => {
