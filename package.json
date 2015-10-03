@@ -1,0 +1,23 @@
+{
+  "name": "es6-utils",
+  "version": "0.0.1",
+  "description": "ES6 Utilities",
+  "main": "./",
+  "repository": "https://github.com/srsholmes/es6-utils",
+  "scripts": {
+    "compile": "babel --stage 0 --out-dir ./ src",
+    "test": "npm run compile && babel-tape-runner test/**/*.js | tap-bail | tap-difflet",
+    "watch": "watch 'npm test' src test",
+    "prepublish": "npm test"
+  },
+  "author": "Simon Holmes",
+  "devDependencies": {
+    "babel": "^5.5.6",
+    "babel-runtime": "^5.5.6",
+    "babel-tape-runner": "^1.2.0",
+    "tap-bail": "0.0.0",
+    "tap-difflet": "^0.3.0",
+    "tape": "^4.2.0",
+    "watch": "^0.16.0"
+  }
+}
