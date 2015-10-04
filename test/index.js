@@ -2,7 +2,7 @@ import test from 'tape';
 
 import { isPrime } from '../math';
 import { removeDuplicate, maxNumber, concat, concatAndFlat, remove } from '../arrays';
-import { reverse, escapeHTML } from '../strings';
+import { reverse, escapeHTML, capitalize } from '../strings';
 import { makeArray, isEmpty } from '../objects';
 
 let obj = {};
@@ -22,7 +22,13 @@ test('isPrime', t => {
   t.equal(isPrime('string'), false, 'Strings return false')
 });
 
-//**** String Functions ****'
+//**** String Functions ****
+test('capitalize', t => {
+  t.plan(2);
+  t.equal(capitalize('foo bar'), 'Foo bar', 'Output should be Foo bar');
+  t.notEqual(capitalize('Simon says'), 'Simon Says', 'Output should only capitalise the first word');
+});
+
 test('reverse', t => {
   t.plan(1);
   let str = 'the quick brown fox jumps over the lazy dog';
