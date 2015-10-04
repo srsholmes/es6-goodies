@@ -1,7 +1,7 @@
 import * as math from './math';
-import * as arrayFunc from './arrayFunc';
-import * as stringFunc from './stringFunc';
-import * as objFunc from './objFunc';
+import * as arrayFunc from './arrays';
+import * as stringFunc from './strings';
+import * as objFunc from './objects';
 export default {
   math,
   arrayFunc,

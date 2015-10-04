@@ -1,11 +1,9 @@
 import test from 'tape';
-import {
-  isPrime
-} from '../math';
 
-import { removeDuplicate, maxNumber, concat, concatAndFlat } from '../arrayFunc';
-import { reverse } from '../stringFunc';
-import { makeArray, isEmpty } from '../objFunc';
+import { isPrime } from '../math';
+import { removeDuplicate, maxNumber, concat, concatAndFlat } from '../arrays';
+import { reverse } from '../strings';
+import { makeArray, isEmpty } from '../objects';
 
 let obj = {};
 let obj_2 = { prop: 'prop' };

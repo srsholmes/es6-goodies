@@ -1,7 +1,7 @@
-/objFunc/
-/stringFunc/
+/objects/
+/strings/
 /math/
-/arrayFunc/
+/arrays/
 node_modules/
 npm-debug.log
 /index.js
