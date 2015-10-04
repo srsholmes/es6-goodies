@@ -1,10 +1,10 @@
 import * as math from './math';
-import * as arrayFunc from './arrays';
-import * as stringFunc from './strings';
-import * as objFunc from './objects';
+import * as arrays from './arrays';
+import * as strings from './strings';
+import * as objects from './objects';
 export default {
   math,
-  arrayFunc,
-  stringFunc,
-  objFunc
+  arrays,
+  strings,
+  objects
 };
