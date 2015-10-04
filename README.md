@@ -1,1 +1,1 @@
-Some es6 utilities
+Some es6 utilities and algorithms
