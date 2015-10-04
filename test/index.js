@@ -1,7 +1,7 @@
 import test from 'tape';
 
 import { isPrime } from '../math';
-import { removeDuplicate, maxNumber, concat, concatAndFlat } from '../arrays';
+import { removeDuplicate, maxNumber, concat, concatAndFlat, remove } from '../arrays';
 import { reverse } from '../strings';
 import { makeArray, isEmpty } from '../objects';
 
@@ -12,6 +12,7 @@ let obj_3 = {
   prop_02: 'prop_02'
 };
 
+const data = Array.from({ length: 10 }, (v, k) => ++k);
 
 //**** Math Functions ****'
 test('isPrime', t => {
@@ -45,11 +46,15 @@ test('isEmpty', t => {
 //**** Array Functions ****'
 test('maxNumber', t => {
   t.plan(4);
-  let arr = [1,2,3];
-  t.deepEqual(maxNumber(arr), 3, 'Max is 3');
+  t.deepEqual(maxNumber(data), 10, 'Max is 10');
   t.deepEqual(maxNumber('1,2,3'), 3, 'Max is 3, in comma seperated string');
   t.deepEqual(maxNumber('1 2 3'), 3, 'Max is 3, in space seperated string');
   t.deepEqual(maxNumber('1a 2b 3c'), 3, 'Max is 3, in space seperated string, with letters stripped');
+});
+
+test('remove', t => {
+  t.plan(1);
+  t.deepEqual(remove(data, 4), [1, 2, 3, 5, 6, 7, 8, 9, 10], 'Item removed');
 });
 
 test('removeDuplicate', t => {
