@@ -3,7 +3,7 @@ import {
   isPrime
 } from '../math';
 
-import { removeDuplicate, maxNumber, concat } from '../arrayFunc';
+import { removeDuplicate, maxNumber, concat, concatAndFlat } from '../arrayFunc';
 import { reverse } from '../stringFunc';
 
 test('isPrime', t => {
@@ -35,8 +35,22 @@ test('reverse', t => {
 });
 
 test('concat', t => {
-  t.plan(1);
+  t.plan(3);
   let arr_01 = [1,2,3];
   let arr_02 = [4,5,6];
+  let arr_03 = [7,8,9];
   t.deepEqual(concat(arr_01, arr_02), [1,2,3,4,5,6], 'Arrays combined');
+  t.deepEqual(concat(arr_02, arr_01), [4,5,6,1,2,3], 'Arrays combined');
+  t.deepEqual(concat(arr_02, arr_01, arr_03), [4,5,6,1,2,3,7,8,9], 'Arrays combined');
+});
+
+test('concatAndFlat', t => {
+  t.plan(4);
+  let arr_01 = [1,1,1];
+  let arr_02 = [2,3,4,5,6];
+  let arr_03 = [7,8,9];
+  t.deepEqual(concatAndFlat(arr_01, arr_02), [1,2,3,4,5,6], 'Arrays combined and flattened');
+  t.deepEqual(concatAndFlat(arr_02, arr_01), [2,3,4,5,6,1], 'Arrays combined and flattened');
+  t.deepEqual(concatAndFlat(arr_02, arr_01, arr_03), [2,3,4,5,6,1,7,8,9], 'Arrays combined and flattened');
+  t.deepEqual(concatAndFlat([1]), [1], 'Arrays combined and flattened');
 });
