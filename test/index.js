@@ -2,7 +2,7 @@ import test from 'tape';
 
 import { isPrime } from '../math';
 import { removeDuplicate, maxNumber, concat, concatAndFlat, remove } from '../arrays';
-import { reverse } from '../strings';
+import { reverse, escapeHTML } from '../strings';
 import { makeArray, isEmpty } from '../objects';
 
 let obj = {};
@@ -27,6 +27,11 @@ test('reverse', t => {
   t.plan(1);
   let str = 'the quick brown fox jumps over the lazy dog';
   t.deepEqual(reverse(str), 'god yzal eht revo spmuj xof nworb kciuq eht', 'String reversed');
+});
+
+test('escapeHTML', t => {
+  t.plan(1);
+  t.deepEqual(escapeHTML('<foo><bar>'), '&lt;foo&gt;&lt;bar&gt;', 'HTML code is escaped');
 });
 
 //**** Object Functions ****'
