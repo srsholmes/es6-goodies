@@ -53,8 +53,11 @@ test('maxNumber', t => {
 });
 
 test('remove', t => {
-  t.plan(1);
-  t.deepEqual(remove(data, 4), [1, 2, 3, 5, 6, 7, 8, 9, 10], 'Item removed');
+  t.plan(3);
+  t.deepEqual(remove(data, 4), [1, 2, 3, 5, 6, 7, 8, 9, 10], 'Single item removed');
+  t.deepEqual(remove(data, 4, 5), [ 1, 2, 3, 6, 7, 8, 9, 10 ], 'Multiples items removed');
+  t.deepEqual(remove([1,2,3,4], 4,4), [ 1, 2, 3], 'Single item removed from duplicate removes');
+
 });
 
 test('removeDuplicate', t => {
