@@ -72,11 +72,13 @@ test('remove', t => {
 });
 
 test('range', t => {
-  t.plan(4);
+  t.plan(6);
   t.deepEqual(range(0, 100, 10), [0, 10, 20, 30, 40, 50, 60, 70, 80, 90], 'Should return an array with correct range and steps');
   t.deepEqual(range(0, 10, 1), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 'Should return an array with correct range and steps');
   t.deepEqual(range(0, 100, 25), [0, 25, 50, 75], 'Should return an array with correct range and steps');
   t.deepEqual(range(0, 1000, 500), [0, 500], 'Should return an array with correct range and steps');
+  t.deepEqual(range(0, 10), [0,1,2,3,4,5,6,7,8,9], 'Should return an array with correct range and steps');
+  t.deepEqual(range(10), [0,1,2,3,4,5,6,7,8,9], 'Should return an array with correct range and steps');
 });
 
 test('removeDuplicate', t => {
