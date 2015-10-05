@@ -1,7 +1,7 @@
 import test from 'tape';
 
 import { isPrime } from '../math';
-import { removeDuplicate, maxNumber, concat, unique, remove, range } from '../arrays';
+import { removeDuplicate, maxNumber, concat, unique, remove, range, flatten } from '../arrays';
 import { reverse, escapeHTML, capitalize } from '../strings';
 import { makeArray, isEmpty } from '../objects';
 
@@ -61,6 +61,11 @@ test('maxNumber', t => {
   t.deepEqual(maxNumber('1,2,3'), 3, 'Should return max as 3, in comma seperated string');
   t.deepEqual(maxNumber('1 2 3'), 3, 'Should return max as 3, in space seperated string');
   t.deepEqual(maxNumber('1a 2b 3c'), 3, 'Should return max as 3, in space seperated string, with letters stripped');
+});
+
+test('flatten', t => {
+  t.plan(1);
+  t.deepEqual(flatten([1, [2, 3, 4, [5, 6, 7, [8, 9, 10]]]]), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 'Should return a single array');
 });
 
 test('remove', t => {
