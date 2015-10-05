@@ -1,7 +1,7 @@
 import test from 'tape';
 
 import { isPrime } from '../math';
-import { removeDuplicate, maxNumber, concat, concatAndFlat, remove } from '../arrays';
+import { removeDuplicate, maxNumber, concat, unique, remove, range } from '../arrays';
 import { reverse, escapeHTML, capitalize } from '../strings';
 import { makeArray, isEmpty } from '../objects';
 
@@ -69,7 +69,14 @@ test('remove', t => {
   t.deepEqual(remove(['apple', 'orange', 'pear'], 'apple'), ['orange','pear'], 'Should return array with item removed');
   t.deepEqual(remove(data, 4, 5), [ 1, 2, 3, 6, 7, 8, 9, 10 ], 'Should return array all items removed');
   t.deepEqual(remove([1,2,3,4], 4,4), [ 1, 2, 3], 'Should return array with single item removed from duplicated input');
+});
 
+test('range', t => {
+  t.plan(4);
+  t.deepEqual(range(0, 100, 10), [0, 10, 20, 30, 40, 50, 60, 70, 80, 90], 'Should return an array with correct range and steps');
+  t.deepEqual(range(0, 10, 1), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 'Should return an array with correct range and steps');
+  t.deepEqual(range(0, 100, 25), [0, 25, 50, 75], 'Should return an array with correct range and steps');
+  t.deepEqual(range(0, 1000, 500), [0, 500], 'Should return an array with correct range and steps');
 });
 
 test('removeDuplicate', t => {
@@ -88,13 +95,13 @@ test('concat', t => {
   t.deepEqual(concat(arr_02, arr_01, arr_03), [4,5,6,1,2,3,7,8,9], 'Should return an array with all inputs');
 });
 
-test('concatAndFlat', t => {
+test('unique', t => {
   t.plan(4);
   let arr_01 = [1,1,1];
   let arr_02 = [2,3,4,5,6];
   let arr_03 = [7,8,9];
-  t.deepEqual(concatAndFlat(arr_01, arr_02), [1,2,3,4,5,6], 'Should return an array with all inputs, with duplicates removed');
-  t.deepEqual(concatAndFlat(arr_02, arr_01), [2,3,4,5,6,1], 'Should return an array with all inputs, with duplicates removed');
-  t.deepEqual(concatAndFlat(arr_02, arr_01, arr_03), [2,3,4,5,6,1,7,8,9], 'Should return an array with all inputs, with duplicates removed');
-  t.deepEqual(concatAndFlat([1]), [1], 'Should return an array with all inputs, with duplicates removed');
+  t.deepEqual(unique(arr_01, arr_02), [1,2,3,4,5,6], 'Should return an array with all inputs, with duplicates removed');
+  t.deepEqual(unique(arr_02, arr_01), [2,3,4,5,6,1], 'Should return an array with all inputs, with duplicates removed');
+  t.deepEqual(unique(arr_02, arr_01, arr_03), [2,3,4,5,6,1,7,8,9], 'Should return an array with all inputs, with duplicates removed');
+  t.deepEqual(unique([1]), [1], 'Should return an array with all inputs, with duplicates removed');
 });
